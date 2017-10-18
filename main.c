@@ -1,5 +1,5 @@
 #include<stdio.h>
-#include"list.h"
+#include "list.c"
 
 int main(){
 	char t[] = "a\0";
