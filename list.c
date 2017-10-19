@@ -23,8 +23,9 @@ struct song_node *insert_front(struct song_node * list,char new_name[],char new_
 
 struct song_node * free_list(struct song_node * list){
   if (list->next){
-    freelist(list->next);
+    free_list(list->next);
     free(list);
   }
-  
+
+  return 0;
 }
