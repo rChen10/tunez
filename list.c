@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "list.h"
-
 void print_list(struct song_node * list){
 	printf("\t%s | %s\n",list->name,list->artist);
 	if(list->next){

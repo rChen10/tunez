@@ -1,12 +1,11 @@
 #include<stdio.h>
-#include "list.c"
-
+#include<stdlib.h>
+#include "list.h"
+#include "library.h"
 int main(){
-	char t[] = "a\0";
-	char t2[] = "aa\0";
-	struct song_node * head = insert_front(NULL,t,t2);
-	print_list(head);
-	printf("%p\n",free_list(head));
-	//printf("%d,%p\n",head->data,head->next);
-	print_list(head);
+	//table = (struct song_node *)malloc(sizeof(struct song_node)*26);
+	add("aa","1");
+	add("ab","1");
+	add("ac","1");
+	print_list(table[0]);
 }

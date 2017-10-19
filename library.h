@@ -6,7 +6,7 @@ void print_letter(char letter);
 void print_artist(char *new_artist);
 void print_lib();
 void shuffle();
-void  remove(char *song_name);
+void  remove_song(char *song_name);
 void clear();
 
 
