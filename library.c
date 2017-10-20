@@ -10,31 +10,17 @@ void str_lower(char * p){
 }
 
 struct song_node* add(char *new_name, char *new_artist){
-	char artist[strlen(new_artist)];
-	strcpy(artist,new_artist);
-	struct song_node * list = table[artist[0]-97];
-	if(!list){
-		table[artist[0]-97] = insert_front(NULL,new_name,new_artist);
-		list_lengths[artist[0]-97]++;
-		return table[artist[0]-97];
-	}
-	struct song_node * prev = NULL;
-	char * temp;
-	str_lower(temp = strcpy((char *)malloc(strlen(list->artist)),list->artist));
-	while(strcmp(artist,temp)>=0){
-		prev = list;
-		list = list->next;
-		if(list == NULL){
-			break;
-		}
-		free(temp);
-		str_lower(temp = strcpy((char *)malloc(strlen(list->artist)),list->artist));
-	}
-	free(temp);
-	struct song_node * new_node = insert_front(list,new_name,new_artist);
-	prev->next = new_node;
-	list_lengths[artist[0]-97]++;
-	return new_node;
+  struct song_node *to_add = table[new_artist[0] - 97];
+  if (new_artist[0] > to_add->artist[0]){
+    table[new_artist[0] - 97] = insert_order(to_add, new_name, new_artist);
+  }
+  else if (new_artist[0] == to_add->artist[0] &&
+      new_name[0] > to_add->name[0]){
+    table[new_artist[0] - 97] = insert_order(to_add, new_name, new_artist);
+  }
+  else{
+    insert_order(to_add, new_name, new_artist);
+  }
 }
 
 void print_library(){
