@@ -34,8 +34,8 @@ struct song_node *insert_order(struct song_node * list,char new_name[],char new_
 }
 
 struct song_node *lfind_sa(struct song_node *list, char *ssong, char *sartist){
-  if (! (strcmp(list->sartist, sartist)) &&
-      ! (strcmp(list->ssong, ssong))){
+  if (! (strcmp(list->artist, sartist)) &&
+      ! (strcmp(list->name, ssong))){
     return list;
   }
   else if (! list->next){
@@ -46,23 +46,34 @@ struct song_node *lfind_sa(struct song_node *list, char *ssong, char *sartist){
   }
 }
 
-struct song_node *lfind_aa(struct song_node *list, char *sartist){
-  if (! (strcmp(list->sartist, sartist))
+struct song_node *lfind_a(struct song_node *list, char *sartist){
+  if (! (strcmp(list->artist, sartist))){
     return list;
   }
   else if (! list->next){
     return 0;
   }
   else{
-    lfind_sa(list->next, sartist);
+    lfind_a(list->next, sartist);
   }
+}
+struct song_node *lfind_s(struct song_node *list,char *ssong){
+ if(! (strcmp(list->name,ssong))){
+   return list;
+ }
+ else if (! list->name){
+   return 0;
+ }
+ else{
+   lfind_s(list->next, ssong);
+ }
 }
 
 void *lremove(struct song_node *list, char *rsong, char *rartist){
   struct song_node *dummy;
   while (! list){
-    if (! (strcmp(list->sartist, sartist)) &&
-      ! (strcmp(list->ssong, ssong))){
+    if (! (strcmp(list->artist, rartist)) &&
+      ! (strcmp(list->name, rsong))){
       break;
     }
     dummy = list;
