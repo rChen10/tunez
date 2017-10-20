@@ -14,21 +14,23 @@ int main(){
 	add("butter","2");*/
 	//print_library();
 
-	struct song_node *head = insert_front(0, "apples", "1");
+	struct song_node *head = insert_front(0, "1", "apples");
 	print_list(head);
-	insert_order(head,"hats","1");
+	insert_order(head,"1","hats");
 	print_list(head);
-	insert_order(head,"cats","1");
+	insert_order(head,"1","cats");
 	print_list(head);
-	insert_order(head,"cookies","1");
+	insert_order(head,"1","cookies");
 	print_list(head);
-	insert_order(head,"fish","2");
+	insert_order(head,"2","cookies");
 	print_list(head);
-	insert_order(head,"fried fish","3");
+	insert_order(head,"3","fried fish");
 	print_list(head);
-	insert_order(head,"butter","3");
+	insert_order(head,"3","butter");
 	print_list(head);
-	insert_order(head,"butter","2");
+	insert_order(head,"2","butter");
+	print_list(head);
+	lremove(head, "1", "cats");
 	print_list(head);
 	
 }

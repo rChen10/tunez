@@ -3,7 +3,7 @@
 #include <string.h>
 #include "list.h"
 void print_list(struct song_node * list){
-  printf("\t%s | %s\n",list->name,list->artist);
+  printf("\t%s | %s\n",list->artist,list->name);
   if(list->next){
     print_list(list->next);
   }
@@ -22,19 +22,21 @@ struct song_node *insert_front(struct song_node * list,char new_name[],char new_
 
 struct song_node *insert_order(struct song_node * list,char new_name[],char new_artist[]){
   if (list->next){
-    if ((strcmp(list->artist, new_artist) <= 0) &&
-	(strcmp(list->next->artist, new_artist) >= 0)){
-      if ((strcmp(list->name, new_name) <= 0) &&
-	  (strcmp(list->next->name, new_name) >= 0))// check if the current node is past order
-      {
-	struct song_node * new_node = (struct song_node  *)malloc(sizeof(struct song_node));
-	strcpy(new_node->name, new_name);
-	strcpy(new_node->artist, new_artist);
-	new_node->next = list->next->next;
-	list->next = new_node;
-	return new_node;
+    if (strcmp(list->next->artist, new_artist) >= 0)
+      {if  (strcmp(list->next->artist, new_artist) == 0 &&
+	      strcmp(list->next->name, new_name) <= 0) {
+	  return insert_order(list->next, new_name, new_artist);
+	}
+	else{
+	  struct song_node * new_node = (struct song_node  *)malloc(sizeof(struct song_node));
+	  strcpy(new_node->name, new_name);
+	  strcpy(new_node->artist, new_artist);
+	  new_node->next = list->next;
+	  list->next = new_node;
+	  return new_node;
+	}
       }
-    }
+    
     else{
       return insert_order(list->next, new_name, new_artist);
     }
@@ -87,15 +89,15 @@ struct song_node *lfind_s(struct song_node *list,char *ssong){
 
 void *lremove(struct song_node *list, char *rsong, char *rartist){
   struct song_node *dummy;
-  while (! list){
+  while (list){
     if (! (strcmp(list->artist, rartist)) &&
-      ! (strcmp(list->name, rsong))){
+	! (strcmp(list->name, rsong))){
       break;
     }
     dummy = list;
     list = list->next;
   }
-  if (! list){
+  if (list){
     dummy->next = list->next;
     free(list);
   }
