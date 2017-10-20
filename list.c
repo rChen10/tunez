@@ -12,6 +12,10 @@ void print_list(struct song_node * list){
   }
 }
 
+void print_node(struct song_node * list){
+  printf("\t%s | %s\n",list->artist,list->name);
+}
+
 struct song_node *insert_front(struct song_node * list,char new_name[],char new_artist[]){
   struct song_node * new_node = (struct song_node  *)malloc(sizeof(struct song_node));
   strcpy(new_node->name, new_name);
@@ -101,6 +105,25 @@ void *lremove(struct song_node *list, char *rsong, char *rartist){
     dummy->next = list->next;
     free(list);
   }
+}
+
+struct song_node *lfind_random(struct song_node *list){
+  srand(time(NULL));
+  int max = 0;
+  int i;
+  struct song_node *dummy = list;
+  
+  while (dummy){
+    max++;
+    dummy = dummy->next;
+      }
+
+  int stop = rand() % max;
+  dummy = list;
+  for (i = 0; i < stop; i++){
+    dummy = dummy->next;
+  }
+  return dummy;
 }
 
 struct song_node * free_list(struct song_node * list){
