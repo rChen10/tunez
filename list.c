@@ -18,9 +18,6 @@ void print_list_artist(struct song_node * list,char * artist){
   if(list->next){
     print_list_artist(list->next,artist);
   }
-  else{
-    printf("\n");
-  }
 
 }
 void print_node(struct song_node * list){

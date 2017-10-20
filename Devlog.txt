@@ -1,3 +1,7 @@
+Date:10/20/17
+Ricky: Bug fixes and finishing touches
+Edmond: Bug fixes and finishing touches
+*------------------*
 Date:10/19/17
 Ricky: Finished up linked lists and helped with library
 Edmond: Finished up library and helped with linked lists

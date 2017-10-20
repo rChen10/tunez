@@ -53,7 +53,7 @@ int main(){
   printf("testing free_list\n");
   free_list(Q);
   printf("list after being free:\n");
-  printf("%s", *Q);
+  printf("%s\n", *Q);
 
   
   printf("=====================\n");
@@ -65,22 +65,28 @@ int main(){
 	list_lengths[i] = 0;
 	table[i] = NULL;
   }
-  old_add("brighton rock", "queen");
-  old_add("good company", "queen");
-  old_add("wish you were here", "pink floyd");
-  old_add("the man who sold the world", "nirvana");
-  old_add("comfortably numb", "pink floyd");
-  printf("printing library\n");
+  add("the man who sold the world", "david bowie");
+  add("brighton rock", "queen");
+  add("good company", "queen");
+  add("wish you were here", "pink floyd");
+  add("the man who sold the world", "nirvana");
+  add("comfortably numb", "pink floyd");
+  printf("Printing library\n");
   print_library();
-  printf("printing \"p\" section\n");
+  printf("=====================\n");
+  printf("Printing \"p\" section\n");
   print_column('p');
-  printf("testing shuffle(3): should return 3 random songs\n");
+  printf("=====================\n");
+  printf("Testing shuffle(3): should return 3 random songs\n");
   shuffle(3);
-  printf("testing print all songs by queen\n");
+  printf("=====================\n");
+  printf("Testing print all songs by queen\n");
   print_library_artist("queen");
-  printf("testing free all nodes\n");
+  printf("Testing free all nodes\n");
   free_all_nodes();
   for(i = 0; i < 26;i++){
   	printf("%p ",table[i]);
   }
+  
+  printf("\n=====================\n");
 }
