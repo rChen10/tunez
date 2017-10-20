@@ -5,6 +5,7 @@ struct song_node{
 };
 
 void print_list(struct song_node*);
+void print_list_artist(struct song_node*,char *);
 void print_node(struct song_node * list);
 struct song_node *insert_front(struct song_node *, char*, char*);
 struct song_node *insert_order(struct song_node *, char*, char*);

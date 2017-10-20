@@ -11,7 +11,18 @@ void print_list(struct song_node * list){
     printf("\n");
   }
 }
+void print_list_artist(struct song_node * list,char * artist){
+  if(strcmp(list->artist,artist)==0){
+  	printf("\t%s | %s\n",list->artist,list->name);
+  }
+  if(list->next){
+    print_list_artist(list->next,artist);
+  }
+  else{
+    printf("\n");
+  }
 
+}
 void print_node(struct song_node * list){
   printf("\t%s | %s\n",list->artist,list->name);
 }
@@ -108,7 +119,7 @@ void *lremove(struct song_node *list, char *rsong, char *rartist){
 }
 
 struct song_node *lfind_random(struct song_node *list){
-  srand(time(NULL));
+  //srand(time(NULL)); only meant to be called once
   int max = 0;
   int i;
   struct song_node *dummy = list;

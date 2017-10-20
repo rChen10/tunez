@@ -10,7 +10,8 @@ void shuffle();
 void  remove_song(char *song_name);
 void clear();
 void print_library();
+void print_library_artist();
 void print_column(char);
 void shuffle(int);
-
-
+void free_all_nodes();
+struct song_node *old_add(char *,char*);

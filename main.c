@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include<time.h>
 #include<stdio.h>
 #include<stdlib.h>
@@ -6,6 +5,7 @@
 #include "library.h"
 
 int main(){
+    srand(time(NULL));
   struct song_node *Q = insert_front(0, "the man who sold the world", "david bowie");
   insert_order(Q, "brighton rock", "queen");
   insert_order(Q, "good company", "queen");
@@ -59,33 +59,28 @@ int main(){
   printf("=====================\n");
   printf("MUSIC LIBRARY TEST\n");
   printf("=====================\n");
-}
-=======
-<<<<<<< HEAD
-#include<time.h>
-#include<stdio.h>
-#include<stdlib.h>
-#include "list.h"
-#include "library.h"
 
-int main(){
-	srand(time(NULL));//seed rng
-	int i;
-	for(i = 0;i < 26;i++){list_lengths[i] = 0;}
-	for(i = 0;i < 26;i++){table[i]=NULL;} //init table
-  	struct song_node *Q = insert_front(0, "brighton rock", "queen");
-  	insert_order(Q, "good company", "queen");
-  	insert_order(Q, "wish you were here", "pink floyd");
-  	insert_order(Q, "the man who sold the world", "david bowie");
-  	insert_order(Q, "the man who sold the world", "nirvana");
-  	insert_order(Q, "comfortably numb", "pink floyd");
-  	
-  	printf("LINKED LIST TESTS\n");
-  	printf("=====================\n");
-  	printf("Testing print_list:\n");
-  	print_list(Q);
-	
-
+  int i;
+  for(i = 0; i < 26;i++){
+	list_lengths[i] = 0;
+	table[i] = NULL;
+  }
+  old_add("brighton rock", "queen");
+  old_add("good company", "queen");
+  old_add("wish you were here", "pink floyd");
+  old_add("the man who sold the world", "nirvana");
+  old_add("comfortably numb", "pink floyd");
+  printf("printing library\n");
+  print_library();
+  printf("printing \"p\" section\n");
+  print_column('p');
+  printf("testing shuffle(3): should return 3 random songs\n");
+  shuffle(3);
+  printf("testing print all songs by queen\n");
+  print_library_artist("queen");
+  printf("testing free all nodes\n");
+  free_all_nodes();
+  for(i = 0; i < 26;i++){
+  	printf("%p ",table[i]);
+  }
 }
->>>>>>> 7feb1feb0cbc2ff2a0bd4b4d11482886cf6b5d7b
->>>>>>> 131b9899942fc70545f01c0c52ec04782d5d4bce
