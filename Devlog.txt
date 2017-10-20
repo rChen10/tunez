@@ -1,21 +1,12 @@
+Date:10/19/17
+Ricky: Finished up linked lists and helped with library
+Edmond: Finished up library and helped with linked lists
 *------------------*
-Date:
-Ricky:
-Edmond:
-*------------------*
-Date:
-Ricky:
-Edmond:
-*------------------*
-Date:
-Ricky:
-Edmond:
-*------------------*
-Date:
-Ricky:
-Edmond:
+Date:10/18/17
+Ricky: Re-tooled old linked list assignment
+Edmond: Re-tooled old linked list assignment
 *------------------*
 Date:10/17/17
-Ricky:
-Edmond:
+Ricky: Made the repo
+Edmond: Did some branch management
 *------------------*
