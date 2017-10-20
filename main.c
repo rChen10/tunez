@@ -9,18 +9,18 @@ int main(){
 	int i;
 	for(i = 0;i < 26;i++){list_lengths[i] = 0;}
   for(i = 0;i < 26;i++){table[i]=NULL;} //init table
-	add("hats","1");
-	add("cats","1");
-	add("cookies","1");
-	add("fish","2");
-	add("fried fish","3");
-	add("butter","3");
-	add("butter","2");
+	add("cats","edmond");
+	add("bats","ricky");
+	add("cheese","tom");
+	add("dogs","edmond");
+	add("fried fish","steve");
+	add("butter","bob");
+	add("butter","ricky");
 	print_library();\
 	printf("--------------------\n");
 	shuffle(3);
-
-	/*struct song_node *head = insert_front(0, "apples", "1");
+/*
+	struct song_node *head = insert_front(0, "apples", "1");
 	print_list(head);
 	insert_order(head,"1","hats");
 	print_list(head);
@@ -37,5 +37,5 @@ int main(){
 	insert_order(head,"2","butter");
 	print_list(head);
 	lremove(head, "1", "cats");
-	print_list(head);
+	print_list(head);*/
 }

@@ -70,10 +70,25 @@ void shuffle(int number_of_songs){
 	if(number_of_songs < 0){
 		number_of_songs = total_length;
 	}
+	int table_indexes[number_of_songs];
+	int i2;
+	for(i = 0; i < number_of_songs; i++){table_indexes[i] = 0;}
 	for(i = 0; i < number_of_songs; i++){
 		selection = rand() % total_length;
+		table_indexes[i] = selection;
+		for(i2 = 0; i2 < i; i2++){
+			if(selection == table_indexes[i2]){
+				if(selection == total_length - 1){
+					selection = 0;
+				}
+				else{
+					selection++;
+				}
+				i2--;
+			}
+		}
 		selected = table_index(selection);
-		head = insert_front(NULL,selected->name,selected->artist);
+		head = insert_front(head,selected->name,selected->artist);
 	}
 	print_list(head);
 	free_list(head);
