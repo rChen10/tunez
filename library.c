@@ -39,3 +39,6 @@ void print_library(){
 	int i;
 	for(i = 0;i < 26;i++){if(table[i]){print_list(table[i]);}}
 }
+void print_column(char a){
+	print_list(table[tolower(a)-97]);
+}

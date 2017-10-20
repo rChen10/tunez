@@ -9,7 +9,7 @@ void shuffle();
 void  remove_song(char *song_name);
 void clear();
 void print_library();
-
+void print_column(char);
 
 
 
