@@ -15,12 +15,19 @@ int main(){
 	//print_library();
 
 	struct song_node *head = insert_front(0, "apples", "1");
+	print_list(head);
 	insert_order(head,"hats","1");
+	print_list(head);
 	insert_order(head,"cats","1");
+	print_list(head);
 	insert_order(head,"cookies","1");
+	print_list(head);
 	insert_order(head,"fish","2");
+	print_list(head);
 	insert_order(head,"fried fish","3");
+	print_list(head);
 	insert_order(head,"butter","3");
+	print_list(head);
 	insert_order(head,"butter","2");
 	print_list(head);
 	
