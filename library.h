@@ -8,7 +8,7 @@ void print_lib();
 void shuffle();
 void  remove_song(char *song_name);
 void clear();
-
+void print_library();
 
 
 
