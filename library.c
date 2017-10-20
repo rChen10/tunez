@@ -12,11 +12,11 @@ void str_lower(char * p){
 struct song_node* add(char *new_name, char *new_artist){
   struct song_node *to_add = table[new_artist[0] - 97];
   if (new_artist[0] > to_add->artist[0]){
-    table[new_artist[0] - 97] = insert_order(to_add, new_name, new_artist);
+    table[new_artist[0] - 97] = insert_front(to_add, new_name, new_artist);
   }
   else if (new_artist[0] == to_add->artist[0] &&
       new_name[0] > to_add->name[0]){
-    table[new_artist[0] - 97] = insert_order(to_add, new_name, new_artist);
+    table[new_artist[0] - 97] = insert_front(to_add, new_name, new_artist);
   }
   else{
     insert_order(to_add, new_name, new_artist);
