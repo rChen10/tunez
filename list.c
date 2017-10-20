@@ -21,15 +21,31 @@ struct song_node *insert_front(struct song_node * list,char new_name[],char new_
 }
 
 struct song_node *insert_order(struct song_node * list,char new_name[],char new_artist[]){
-  if (! list->next){
+  if (list->next){
+    if ((strcmp(list->artist, new_artist) <= 0) &&
+	(strcmp(list->next->artist, new_artist) >= 0)){
+      if ((strcmp(list->name, new_name) <= 0) &&
+	  (strcmp(list->next->name, new_name) >= 0))// check if the current node is past order
+      {
+	struct song_node * new_node = (struct song_node  *)malloc(sizeof(struct song_node));
+	strcpy(new_node->name, new_name);
+	strcpy(new_node->artist, new_artist);
+	new_node->next = list->next->next;
+	list->next = new_node;
+	return new_node;
+      }
+    }
+    else{
+      return insert_order(list->next, new_name, new_artist);
+    }
+  }
+  else{
     struct song_node * new_node = (struct song_node  *)malloc(sizeof(struct song_node));
     strcpy(new_node->name, new_name);
     strcpy(new_node->artist, new_artist);
-    new_node->next = list;
+    new_node->next = 0;
+    list->next = new_node;
     return new_node;
-  }
-  else{
-    return insert_order(list->next, new_name, new_artist);
   }
 }
 
